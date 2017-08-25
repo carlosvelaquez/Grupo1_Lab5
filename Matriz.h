@@ -25,8 +25,8 @@ class Matriz{
 			int** matriz1=this->matriz;
 			int** matriz2=value.getMatriz();
 
-			for(int i=0;i<this->getSizeFila();i++){
-				for(int j=0;j<this->getSizeColumna();j++){
+			for(int i=0;i<this->sizeFila;i++){
+				for(int j=0;j<this->sizeColumna;j++){
 					matrizr[i][j]=matriz1[i][j]+matriz2[i][j];
 				}
 			}
@@ -36,15 +36,15 @@ class Matriz{
 
 
 		Matriz operator-(Matriz& value){
-			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
+			Matriz matrizRetorno(this->sizeFila, this->sizeColumna);
 			
 			//Dos matrices que se restan y matriz retorno
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->matriz;
 			int** matriz2=value.getMatriz();
 
-			for(int i=0;i<this->getSizeFila();i++){
-				for(int j=0;j<this->getSizeColumna();j++){
+			for(int i=0;i<this->sizeFila;i++){
+				for(int j=0;j<this->sizeColumna;j++){
 					matrizr[i][j]=matriz1[i][j]-matriz2[i][j];
 				}
 			}
@@ -53,7 +53,7 @@ class Matriz{
 		}
 
 		Matriz operator()(){
-			Matriz matrizRetorno(this->getSizeColumna(), this->getSizeFila());
+			Matriz matrizRetorno(this->sizeColumna, this->sizeFila);
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->matriz;
 
@@ -67,12 +67,12 @@ class Matriz{
 		}
 		
 		Matriz operator-(){
-			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
+			Matriz matrizRetorno(this->sizeFila, this->sizeColumna);
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->matriz;
 
-			for(int i=0;i<this->getSizeFila();i++){
-				for(int j=0;j<this->getSizeColumna();j++){
+			for(int i=0;i<this->sizeFila;i++){
+				for(int j=0;j<this->sizeColumna;j++){
 					matrizr[i][j]=(matriz1[i][j])*(-1);
 				}
 			}
@@ -85,8 +85,8 @@ class Matriz{
 			int** matriz1=this->matriz;
 			int** matriz2=value.getMatriz();
 
-			for(int i=0;i<this->getSizeFila();i++){
-				for(int j=0;j<this->getSizeColumna();j++){
+			for(int i=0;i<this->sizeFila;i++){
+				for(int j=0;j<this->sizeColumna;j++){
 					if(matriz1[i][j] != matriz2[i][j]){
 						comparar=false;
 					}
@@ -96,21 +96,21 @@ class Matriz{
 		}
 	
 		Matriz operator*(Matriz& value){
-			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
+			Matriz matrizRetorno(this->sizeFila, this->sizeColumna);
 			
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->matriz;
 			int** matriz2=value.getMatriz();
 			int valor1=0, valor2=0, algo=0;
 			
-			for(int i=0;i<this->getSizeFila();i++){
+			for(int i=0;i<this->sizeFila;i++){
 				for(int j=0;j<value.getSizeColumna();j++){
 					matrizr[i][j]=matriz1[i][j]*matriz2[j][i];
 				}
 			}
 
 
-			for(int r=0;r<this->getSizeFila();r++){
+			for(int r=0;r<this->sizeFila;r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
 					if((r+1)>=value.getSizeColumna()){
@@ -128,7 +128,7 @@ class Matriz{
 				}
 			}
 
-			for(int r=0;r<this->getSizeFila();r++){
+			for(int r=0;r<this->sizeFila;r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
 					if((r+2)>=value.getSizeColumna()){
@@ -151,16 +151,16 @@ class Matriz{
 		}
 		
 		Matriz operator--(int o){
-			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
+			Matriz matrizRetorno(this->sizeFila, this->sizeColumna);
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->matriz;
 
-			if(this->getSizeFila()==2 && this->getSizeColumna()==2){
+			if(this->sizeFila==2 && this->sizeColumna==2){
 				matrizr[0][0]=matriz1[1][1];
 				matrizr[1][1]=matriz1[0][0];
 				matrizr[0][1]=(matriz1[0][1])*(-1);
 				matrizr[1][0]=(matriz1[1][0])*(-1);
-			}else if(this->getSizeFila()==3 && this->getSizeColumna()==3){
+			}else if(this->sizeFila==3 && this->sizeColumna==3){
 				matrizr[0][0]=(matriz[1][1]*matriz[2][2])-(matriz[2][1]*matriz[1][2]);
 				matrizr[1][0]=((matriz[1][0]*matriz[2][2])-(matriz[2][0]*matriz[1][2]))*(-1);
 				matrizr[2][0]=(matriz[1][0]*matriz[2][1])-(matriz[2][0]*matriz[1][1]);
