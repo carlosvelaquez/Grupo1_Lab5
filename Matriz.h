@@ -96,7 +96,7 @@ class Matriz{
 		}
 	
 		Matriz operator*(Matriz& value){
-			Matriz matrizRetorno(this->getSizeFila(), this.getSizeColumna());
+			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
 			
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->getMatriz();
@@ -150,7 +150,7 @@ class Matriz{
 			return matrizRetorno;
 		}
 		
-		Matriz operator--(){
+		Matriz operator--(int o){
 			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->getMatriz();
