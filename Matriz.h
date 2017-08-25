@@ -7,8 +7,8 @@ class Matriz{
 		int sizeColumna;
 		int sizeFila;
 	public:
-		matriz();
-		matriz(int, int);
+		Matriz();
+		Matriz(int, int);
 		int** getMatriz();
 		int getSizeColumna();
 		int getSizeFila();

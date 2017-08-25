@@ -6,7 +6,7 @@ Matriz::Matriz(){
 
 }
 
-Matriz::Matriz(int pColumna, int pFila){
+Matriz::Matriz(int pFila, int pColumna){
 	sizeColumna=pColumna;
 	sizeFila=pFila;
 	matriz=new int*[sizeFila];
