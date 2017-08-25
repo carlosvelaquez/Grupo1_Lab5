@@ -14,6 +14,8 @@ Matriz* seleccionarMatriz(vector<Matriz>*);
 Matriz* seleccionarResultado(vector<Matriz>*);
 void realizarOperacion(vector<Matriz>*, vector<Matriz>*);
 void registrarOperacion(Matriz*, Matriz*, int, Matriz);
+void registrarOperacion(Matriz*, Matriz*, bool);
+
 void registrarOperacion(int, Matriz*, Matriz);
 int seleccionarOperacion(int);
 
@@ -154,7 +156,7 @@ Matriz* seleccionarMatriz(vector<Matriz>* matrices){
 		if(opcion < 0 || opcion > (matrices->size() - 1)){
 			cout << "[ERROR] El número ingresado no corresponde a ninguna matríz." << endl;
 		}else{	
-			cout << "Matríz Seleccionada" << endl << endl;
+			cout << "Matríz Seleccionada" << endl;
 			return (&(matrices->at(opcion)));
 			continuar = true;
 		}
@@ -229,7 +231,7 @@ void realizarOperacion(vector<Matriz>* matrices, vector<Matriz>* resultados){
 									  break;
 							   case 4:{
 										  if((*mLeft) == (*mRight)){
-											  registrarOperacion((*mLeft), (*mRight), ((*mLeft) == (*mRight)));
+											  registrarOperacion(mLeft, mRight, ((*mLeft) == (*mRight)));
 										  };
 									  }
 									  break;
@@ -361,27 +363,11 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 }
 
 void registrarOperacion(Matriz* mLeft, Matriz* mRight, bool esIgual){
-	string opStr = " ";
-
-	switch(operacion){
-		case 1:
-			opStr = "+";
-			break;
-		case 2:
-			opStr = "-";
-			break;
-		case 3:
-			opStr = "*";
-			break;
-		case 4:
-			opStr = "==";
-			break;
-	}
+	string opStr = "==";
 	time_t now = time(0);
 
-	cout << "Resultado" << endl << endl;
-	imprimirMatriz(&resultado);
-
+	cout << "Resultado" << endl << "Son iguales? " << esIgual;
+	
 	char* dt = ctime(&now);
 	string outString = dt;
 
