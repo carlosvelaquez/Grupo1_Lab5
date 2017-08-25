@@ -1,7 +1,7 @@
 #include "Matriz.h"
 #include <iostream>
 #include <vector>
-#include <ofstream>
+#include <fstream>
 #include <ctime>
 
 using namespace std;
@@ -9,6 +9,7 @@ using namespace std;
 int menu();
 Matriz nuevaMatriz();
 void imprimirMatriz(Matriz*);
+void imprimirMatriz(Matriz*, ofstream*);
 Matriz* seleccionarMatriz(vector<Matriz>*);
 Matriz* seleccionarResultado(vector<Matriz>*);
 void realizarOperacion(vector<Matriz>*, vector<Matriz>*);
@@ -184,20 +185,20 @@ void realizarOperacion(vector<Matriz>* matrices, vector<Matriz>* resultados){
 		}else{
 			switch(opcion){
 				case 1:{
-						   Matriz* m = seleccionarMatriz();
+						   Matriz* m = seleccionarMatriz(matrices);
 						   int operacion = seleccionarOperacion(1);
 
 						   switch(operacion){
 							   case 1:{
-										  resultados.push_back(-(*m));
+										  resultados->push_back(-(*m));
 									  }
 									  break;
 							   case 3:{
-										  resultados.push_back((*m)--);
+										  resultados->push_back((*m)--);
 									  }
 									  break;
 							   case 2:{
-										  resultados.push_back((*m)());
+										  resultados->push_back((*m)());
 									  }
 									  break;
 
@@ -208,22 +209,22 @@ void realizarOperacion(vector<Matriz>* matrices, vector<Matriz>* resultados){
 					   }
 					   break;
 				case 2:{
-						   Matriz* mLeft = seleccionarMatriz();
-						   Matriz* mRight = seleccionarMatriz();
+						   Matriz* mLeft = seleccionarMatriz(matrices);
+						   Matriz* mRight = seleccionarMatriz(matrices);
 
 						   int operacion = seleccionarOperacion(2);
 
 						   switch(operacion){
 							   case 1:{
-										  resultados.push_back((*mLeft) + (*mRight));
+										  resultados->push_back((*mLeft) + (*mRight));
 									  }
 									  break;
 							   case 2:{
-										  resultados.push_back((*mLeft) - (*mRight));
+										  resultados->push_back((*mLeft) - (*mRight));
 									  }
 									  break;
 							   case 3:{
-										  resultados.push_back((*mLeft) * (*mRight));
+										  resultados->push_back((*mLeft) * (*mRight));
 									  }
 									  break;
 							   case 4:{
@@ -302,9 +303,10 @@ void registrarOperacion(int operacion, Matriz* m, Matriz resultado){
 			opStr = "--";
 			break;
 	}
+	time_t now = time(0);
 
 	cout << "Resultado" << endl << endl;
-	imprimirMatriz(resultado);
+	imprimirMatriz(&resultado);
 
 	char* dt = ctime(&now);
 	string outString = dt;
@@ -312,9 +314,9 @@ void registrarOperacion(int operacion, Matriz* m, Matriz resultado){
 	ofstream out;
 	out.open(outString);
 	out << "--------" << dt << "--------\n";
-	imprimirMatriz(*m, &out);
+	imprimirMatriz(m, &out);
 	out << "\n\nOperación: " << opStr << "\n\n";
-	imprimirMatriz(resultado, &out);
+	imprimirMatriz(&resultado, &out);
 	out << "\n\n--------FIN--------";
 	out.close();
 
@@ -337,9 +339,10 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 			opStr = "==";
 			break;
 	}
+	time_t now = time(0);
 
 	cout << "Resultado" << endl << endl;
-	imprimirMatriz(resultado);
+	imprimirMatriz(&resultado);
 
 	char* dt = ctime(&now);
 	string outString = dt;
@@ -347,11 +350,11 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 	ofstream out;
 	out.open(outString);
 	out << "--------" << dt << "--------\n";
-	imprimirMatriz(*mLeft, &out);
+	imprimirMatriz(mLeft, &out);
 	out << "\n\nOperación: " << opStr << "\n\n";
-	imprimirMatriz(*mRight, &out);
+	imprimirMatriz(mRight, &out);
 	out << "\n\n=\n\n";
-	imprimirMatriz(resultado, &out);
+	imprimirMatriz(&resultado, &out);
 	out << "\n\n--------FIN--------";
 	out.close();
 
