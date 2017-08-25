@@ -19,15 +19,17 @@ class Matriz{
 		Matriz operator+(Matriz& value){
 			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
 			
-			//Dos matrices que se suman
+			//Dos matrices que se suman y matriz retorno
+			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->getMatriz();
 			int** matriz2=value.getMatriz();
 
 			for(int i=0;i<this->getSizeFila();i++){
 				for(int j=0;j<this->getSizeColumna();j++){
-					matrizRetorno[i][j]=matriz1[i][j]+matriz2[i][j];
+					matrizr[i][j]=matriz1[i][j]+matriz2[i][j];
 				}
 			}
+			MatrizRetorno.setMatriz(matrizr);			
 			return matrizRetorno;
 		}
 

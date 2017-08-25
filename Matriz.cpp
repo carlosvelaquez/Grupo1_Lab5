@@ -23,7 +23,7 @@ int Matriz::getSizeColumna(){
 	return sizeColumna;
 }
 
-int Matriz::getSizeFile(){
+int Matriz::getSizeFila(){
 	return sizeFila;
 }
 
