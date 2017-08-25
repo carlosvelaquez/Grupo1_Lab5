@@ -309,7 +309,7 @@ void registrarOperacion(int operacion, Matriz* m, Matriz resultado){
 
 	cout << "Resultado" << endl << endl;
 	imprimirMatriz(&resultado);
-
+/*
 	char* dt = ctime(&now);
 	string outString = dt;
 
@@ -320,7 +320,7 @@ void registrarOperacion(int operacion, Matriz* m, Matriz resultado){
 	out << "\n\nOperación: " << opStr << "\n\n";
 	imprimirMatriz(&resultado, &out);
 	out << "\n\n--------FIN--------";
-	out.close();
+	out.close();*/
 
 }
 
@@ -343,7 +343,7 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 	}
 	time_t now = time(0);
 
-	cout << "Resultado" << endl << endl;
+	/*cout << "Resultado" << endl << endl;
 	imprimirMatriz(&resultado);
 
 	char* dt = ctime(&now);
@@ -358,7 +358,7 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 	out << "\n\n=\n\n";
 	imprimirMatriz(&resultado, &out);
 	out << "\n\n--------FIN--------";
-	out.close();
+	out.close();*/
 
 }
 
@@ -370,7 +370,7 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, bool esIgual){
 	
 	char* dt = ctime(&now);
 	string outString = dt;
-
+/*
 	ofstream out;
 	out.open(outString);
 	out << "--------" << dt << "--------\n";
@@ -380,7 +380,7 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, bool esIgual){
 	out << "\n\nSon iguales?\n\n";
 	out << esIgual;
 	out << "\n\n--------FIN--------";
-	out.close();
+	out.close();*/
 
 }
 
