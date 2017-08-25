@@ -39,5 +39,7 @@ void Matriz::setSizeFila(int pFila){
 	sizeFila=pFila;
 }
 
-
+int Matriz::setValor(int fila, int columna){
+	return matriz[fila][columna];
+}
 
