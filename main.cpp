@@ -360,4 +360,42 @@ void registrarOperacion(Matriz* mLeft, Matriz* mRight, int operacion, Matriz res
 
 }
 
+void registrarOperacion(Matriz* mLeft, Matriz* mRight, bool esIgual){
+	string opStr = " ";
+
+	switch(operacion){
+		case 1:
+			opStr = "+";
+			break;
+		case 2:
+			opStr = "-";
+			break;
+		case 3:
+			opStr = "*";
+			break;
+		case 4:
+			opStr = "==";
+			break;
+	}
+	time_t now = time(0);
+
+	cout << "Resultado" << endl << endl;
+	imprimirMatriz(&resultado);
+
+	char* dt = ctime(&now);
+	string outString = dt;
+
+	ofstream out;
+	out.open(outString);
+	out << "--------" << dt << "--------\n";
+	imprimirMatriz(mLeft, &out);
+	out << "\n\nOperación: " << opStr << "\n\n";
+	imprimirMatriz(mRight, &out);
+	out << "\n\nSon iguales?\n\n";
+	out << esIgual;
+	out << "\n\n--------FIN--------";
+	out.close();
+
+}
+
 
