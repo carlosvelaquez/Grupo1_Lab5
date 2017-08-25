@@ -4,6 +4,7 @@
 
 using namespace std;
 
+int menu();
 Matriz nuevaMatriz();
 void imprimirMatriz(Matriz*);
 Matriz* seleccionarMatriz(vector<Matriz>*);
@@ -20,7 +21,7 @@ int main(){
 
 		switch(opcion){
 			case 1:{
-					   matrices.insert(nuevaMatriz());
+					   matrices.push_back(nuevaMatriz());
 					   cout << "Matríz agregada exitosamente." << endl;
 				   }break;
 			case 2:{
