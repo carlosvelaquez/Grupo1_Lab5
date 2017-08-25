@@ -104,7 +104,7 @@ class Matriz{
 			int valor1=0, valor2=0, algo=0;
 			
 			for(int i=0;i<this->getSizeFila();i++){
-				for(int j=0;j<value.getSizeColumna;j++){
+				for(int j=0;j<value.getSizeColumna();j++){
 					matrizr[i][j]=matriz1[i][j]*matriz2[j][i];
 				}
 			}
@@ -113,7 +113,7 @@ class Matriz{
 			for(int r=0;r<this->getSizeFila();r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
-					if((r+1)>=value.getsizeColumna){
+					if((r+1)>=value.getsizeColumna()){
 						algo=-1;
 					}
 
@@ -131,7 +131,7 @@ class Matriz{
 			for(int r=0;r<this->getSizeFila();r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
-					if((r+2)>=value.getsizeColumna){
+					if((r+2)>=value.getsizeColumna()){
 						algo=-2;
 					}
 
