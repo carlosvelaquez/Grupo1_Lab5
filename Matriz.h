@@ -80,20 +80,6 @@ class Matriz{
 			return matrizRetorno;
 		}
 
-		Matriz operator()(){
-			Matriz matrizRetorno(this->getSizeColumna(), this->getSizeFila());
-			int** matrizr=matrizRetorno.getMatriz();
-			int** matriz1=this->getMatriz();
-
-			for(int i=0;i<this->getSizeColumna();i++){
-				for(int j=0;j<this->getSizeFila();j++){
-					matrizr[i][j]=matriz1[j][i];
-				}
-			}
-			matrizRetorno.setMatriz(matrizr);
-			return matrizRetorno;
-		}
-
 		bool operator==(Matriz& value){
 			bool comparar=true;
 			int** matriz1=this->getMatriz();
@@ -115,21 +101,23 @@ class Matriz{
 			int** matrizr=matrizRetorno.getMatriz();
 			int** matriz1=this->getMatriz();
 			int** matriz2=value.getMatriz();
-			int valor1=0, valor2=0, valor3=0;
+			int valor1=0, k=0;
 
 			for(int r=0;r<this->getSizeFila();r++){
-				for(int k=0;k<value.getSizeColumna();k++){
-					
+				for(k=0;k<value.getSizeColumna();k++){
+					valor1+=matriz1[r][k]*matriz2[k][r];
+				}
+				matrizr[r][k]=valor1;
+				valor1=0;
+			}
 
-					for(int i=0;i<this->getSizeFila;i++){
-						for(int j=0;j<value.getSizeColumna;j++){
-							for(int l=0;l<10;i++){
-
-							}
-						}
-					}
+			for(int i=0;i<this->getSizeFila();i++){
+				for(int i=0;i<value.getSizeColumna;i++){
+					valor1=matriz[r][k]*matriz[k][r];
 				}
 			}
+
+
 			matrizRetorno.setMatriz(matrizr);			
 			return matrizRetorno;
 		}*/
