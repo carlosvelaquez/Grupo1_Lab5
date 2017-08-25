@@ -12,6 +12,7 @@ Matriz* seleccionarResultado(vector<Matriz>*);
 void realizarOperacion(vector<Matriz>*, vector<Matriz>*);
 
 int main(){
+	cout << "Laboratorio 5 - Carlos Velásquez y Leonardo Borjas" << endl;
 	vector<Matriz> matrices;
 	vector<Matriz> resultados;
 	bool salir = false;
@@ -112,13 +113,37 @@ Matriz nuevaMatriz(){
 void imprimirMatriz(Matriz* matriz){
 	for(int i = 0; i < matriz->getSizeFila(); i++){
 		for(int j = 0; j < matriz->getSizeColumna(); j++){
-			cout << " | " << matriz->getValor(i,j) << endl;
+			cout << " | " << matriz->getValor(i,j);
 		}
 		cout << " |" << endl;
 	}
 }
 
-Matriz* seleccionarMatriz(vector<Matriz>*){
+Matriz* seleccionarMatriz(vector<Matriz>* matrices){
+	cout << "Seleccionar Matríz a Imprimir" << endl << endl;
+	int opcion = -69;
+	bool continuar = false;
+
+	do{
+		for(int i = 0; i < matrices->size(); i++){
+			cout << (i+1) << ". Matriz Size [" << (matrices->at(i)).getSizeFila() << "," << (matrices->at(i)).getSizeColumna() << "]" << endl;
+		}
+
+		cout << endl << "Ingrese el número de la matriz que desea imprimir - ";
+		cin >> opcion;
+
+		opcion --;
+		cout << endl;
+
+		if(opcion < 0 || opcion > (matrices->size() - 1)){
+			cout << "[ERROR] El número ingresado no corresponde a ninguna matríz." << endl;
+		}else{
+			cout << "Matríz Seleccionada" << endl << endl;
+			return (&(matrices->at(opcion)));
+			continuar = true;
+		}
+	}while(!continuar);
+
 	return new Matriz();
 }
 
