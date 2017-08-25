@@ -29,7 +29,7 @@ class Matriz{
 					matrizr[i][j]=matriz1[i][j]+matriz2[i][j];
 				}
 			}
-			MatrizRetorno.setMatriz(matrizr);			
+			matrizRetorno.setMatriz(matrizr);			
 			return matrizRetorno;
 		}
 
