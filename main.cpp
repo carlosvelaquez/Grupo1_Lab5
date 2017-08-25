@@ -38,11 +38,11 @@ int main(){
 				   }break;
 			default:{
 						cout << "[ERROR] Numero de opción inválido, por favor intente de nuevo." << endl;
-				   }break;
+					}break;
 		}
 
 	}
-	
+
 	return 0;;
 }
 
@@ -65,15 +65,66 @@ int menu(){
 }
 
 Matriz nuevaMatriz(){
-	Matriz m;
-	return m;
+	int filas = 0;
+	int columnas = 0;
+	bool continuar = false;
+	Matriz* nuevaMatriz;
+
+	do{
+		cout << "Ingrese el número de filas: ";
+		cin >> filas;
+		cout << "Ingrese el número de columnas: ";
+		cin >> columnas;
+		cout << endl;
+
+		if(filas < 1 || columnas < 1){
+			cout << "[ERROR] Las dimensiones no pueden ser menores a 1." << endl;
+		}else{
+			nuevaMatriz = new Matriz(filas, columnas);
+			int** valores;
+
+			valores = new int*[filas];
+			for(int i = 0; i < filas; i++){
+				valores[i] = new int[columnas];
+			}
+
+			cout << "Ingrese los valores para cada posición" << endl;
+
+			for(int i = 0; i < filas; i++){
+				for(int j = 0; j < columnas; j++){
+					int valor;
+					cout << "[" << i << "," << j << "]: ";
+					cin >> valor;
+					valores[i][j] = valor;
+				}
+			}
+
+			nuevaMatriz->setMatriz(valores);
+			continuar = true;
+		}
+
+		cout << endl;
+	}while(!continuar);
+
+	return (*nuevaMatriz);
 }
-void imprimirMatriz(Matriz*){}
+
+void imprimirMatriz(Matriz* matriz){
+	for(int i = 0; i < matriz->getSizeFila; i++){
+		for(int j = 0; j < matriz->getSizeColumna; j++){
+			cout << " | " << matriz->getValor(i,j) << endl;
+		}
+		cout << " |" << endl;
+	}
+}
+
 Matriz* seleccionarMatriz(vector<Matriz>*){
 	return new Matriz();
 }
+
 Matriz* seleccionarResultado(vector<Matriz>*){
 	return new Matriz();
 }
+
 void realizarOperacion(vector<Matriz>*, vector<Matriz>*){}
 
