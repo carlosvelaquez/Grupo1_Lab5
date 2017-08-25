@@ -27,7 +27,7 @@ int main(){
 					   imprimirMatriz(seleccionarMatriz(&matrices));
 				   }break;
 			case 3:{
-					   imprimirResultado(seleccionarResultado(&resultados));
+					   imprimirMatriz(seleccionarResultado(&resultados));
 				   }break;
 			case 4:{
 					   realizarOperacion(&matrices, &resultados);
