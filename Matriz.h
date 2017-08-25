@@ -73,7 +73,7 @@ class Matriz{
 
 			for(int i=0;i<this->getSizeFila();i++){
 				for(int j=0;j<this->getSizeColumna();j++){
-					matrizr[i][j]=(matriz1[j][i])*(-1);
+					matrizr[i][j]=(matriz1[i][j])*(-1);
 				}
 			}
 			matrizRetorno.setMatriz(matrizr);
