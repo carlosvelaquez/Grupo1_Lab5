@@ -1,0 +1,43 @@
+#include "Matriz.h"
+#include <iostream>
+using namespace std;
+
+Matriz::Matriz(){
+
+}
+
+Matriz::Matriz(int pColumna, int pFila){
+	sizeColumna=pColumna;
+	sizeFila=pFila;
+	matriz=new int*[sizeFila];
+	for(int i=0;i<sizeFila;i++){
+		matriz[sizeFila]=new int[sizeColumna];
+	}
+}
+
+int** Matriz::getMatriz(){
+	return matriz;
+}
+
+int Matriz::getSizeColumna(){
+	return sizeColumna;
+}
+
+int Matriz::getSizeFile(){
+	return sizeFila;
+}
+
+void Matriz::setMatriz(int** pMatriz){
+	matriz=pMatriz;
+}
+
+void Matriz::setSizeColumna(int pColumna){
+	sizeColumna=pColumna;
+}
+
+void Matriz::setSizeFila(int pFila){
+	sizeFila=pFila;
+}
+
+
+
