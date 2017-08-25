@@ -35,7 +35,7 @@ class Matriz{
 		}
 
 		Matriz operator-(Matriz& value){
-			Matriz matrizRetorno(this->getSizeFila(), value->getSizeColumna());
+			Matriz matrizRetorno(this->getSizeFila(), this->getSizeColumna());
 			
 			//Dos matrices que se restan y matriz retorno
 			int** matrizr=matrizRetorno.getMatriz();
@@ -52,9 +52,9 @@ class Matriz{
 		}
 
 		Matriz operator()(){
-			Matriz matrizRetorno(this->getSizeColumna, this->getSizeFila);
+			Matriz matrizRetorno(this->getSizeColumna(), this->getSizeFila());
 			int** matrizr=matrizRetorno.getMatriz();
-			int** matriz1=this->getmatriz();
+			int** matriz1=this->getMatriz();
 
 			for(int i=0;i<this->getSizeColumna();i++){
 				for(int j=0;j<this->getSizeFila();j++){
