@@ -113,7 +113,7 @@ class Matriz{
 			for(int r=0;r<this->getSizeFila();r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
-					if((r+1)>=value.getsizeColumna()){
+					if((r+1)>=value.getSizeColumna()){
 						algo=-1;
 					}
 
@@ -131,7 +131,7 @@ class Matriz{
 			for(int r=0;r<this->getSizeFila();r++){
 				for(int k=0;k<value.getSizeColumna();k++){
 					algo=r;
-					if((r+2)>=value.getsizeColumna()){
+					if((r+2)>=value.getSizeColumna()){
 						algo=-2;
 					}
 
