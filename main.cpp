@@ -110,8 +110,8 @@ Matriz nuevaMatriz(){
 }
 
 void imprimirMatriz(Matriz* matriz){
-	for(int i = 0; i < matriz->getSizeFila; i++){
-		for(int j = 0; j < matriz->getSizeColumna; j++){
+	for(int i = 0; i < matriz->getSizeFila(); i++){
+		for(int j = 0; j < matriz->getSizeColumna(); j++){
 			cout << " | " << matriz->getValor(i,j) << endl;
 		}
 		cout << " |" << endl;
